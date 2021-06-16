@@ -104,10 +104,10 @@ body {
 .active {
   color: var(--highlight-color);
 }
-active::after {
+.active::after {
   display: flex;
   content: '';
-  width: 48px;
+  width: inherit;
   border-bottom: 4px solid;
   background-color: var(--highlight-color);
   border-radius: 2px;
@@ -460,19 +460,28 @@ active::after {
   margin-top: var(--card-set-gap);
   flex-basis: calc(100% / 3 - var(--card-set-gap));
 }
-.box{
-  position: relative;
+.project-links:hover .project-discription {
+  opacity: 1;
+  transform: translateY(0);
 }
-.project-discription{
+.box {
+  position: relative;
+  overflow: hidden;
+}
+
+.project-discription {
+  display: flex;
+  align-items: center;
   position: absolute;
-  width: 100%;
-  height: 100%;
   top: 0;
   left: 0;
-  width: 370px;
-  height: 294px;
-  background: rgba(33, 150, 243, 0.9);
-  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  color: var(--background-color);
+  background-color: rgba(33, 150, 243, 0.9);
+  opacity: 0;
+  transform: translateY(100%);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .project-list img {
@@ -637,6 +646,7 @@ active::after {
   width: 18px;
   height: 18px;
   border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
   cursor: pointer;
   background-color: var(--background-color);
 }
